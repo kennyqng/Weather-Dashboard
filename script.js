@@ -3,30 +3,40 @@
     var apiKey = "84812982b10af876dab44397bb670d34";
     var lon = "";
     var lat = "";
-    var count = 0;
-    var city = "Garden Grove";
+    var count = localStorage.getItem("count");
+    if(count == null){
+        localStorage.setItem("count", 0);
+    }
+    var city = "Irvine";
 
     runWeather();
 
     $("#searchBtn").on("click", function(){
         city = $("#searchInput").val();
         runWeather();
-        count++;
-        if (count > 10){
+        localStorage.getItem("count")++;
+        localStorage.setItem("count", count);
+        if (count > 7){
             count = 0;
         }
+        $("#searchInput").val("");
     })
 
-function cityStorage (){
+function refreshHistory(){
+    for (var i = 0; i < 7;i++){
+        $("#storage"+i).text(localStorage.getItem("local"+i));
+    }
+}
+
+function cityStorage (cityName){
     var store = localStorage.getItem("local"+count);
-    localStorage.setItem("local"+count, $("#searchInput").val());
-    var newBlock = $("<p>").text(store);
-    $("#history").prepend(newBlock);
+    localStorage.setItem("local"+count, cityName);
+    city = localStorage.getItem("local"+count);
 }
 
 
 function runWeather(){
-    cityStorage();
+    refreshHistory();
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
     
     $.ajax({
@@ -36,9 +46,12 @@ function runWeather(){
     .then(function(response){
         // console.log(queryURL);
         console.log(response);
+
+        var newCity = response.name;
+        cityStorage(newCity);
     
         $("#cityName").text(response.name + ", " + response.sys.country);
-        $("#condition").text(response.weather[0].description);
+        $("#condition").text("Condition: " + response.weather[0].description);
         $("#temp").text("Temperature: "+ response.main.temp + " F");
         $("#hum").text("Humidity: " + response.main.humidity);
         $("#wind").text("Wind Speed: " + response.wind.speed);
@@ -66,7 +79,7 @@ function runWeather(){
                 $("#condition"+i).attr("src", "http://openweathermap.org/img/wn/" + dayIcon + ".png");
 
                 $("#info"+i).text(
-                    " Temp: " + response.daily[i].temp.day +
+                    " Temp: " + response.daily[i].temp.day + " F" +
                     " Humidity: " + response.daily[i].humidity
                 );
             }

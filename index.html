@@ -13,27 +13,38 @@
 <body>
     <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">  Weather Dashboard</a>
+          <a href="#" class="brand-logo">Weather</a>
         </div>
       </nav>
 
     <div class = "row">
-        <div class = "col s4">
+        <div class = "col s2">
             <div id="sideBar">
                 <div class="input-field">
-                    <input id="searchInput" type="text">
-                    <label for="first_name">Search for a city</label>
+                    <input class="teal-text" id="searchInput" type="text" placeholder="Irvine">
+                    <label for="city_name">Search for a city</label>
                   </div>
                 <a class="waves-effect waves-light btn-small"id= "searchBtn">Search</a>
-                <div id="history"></div>
+                <div id="history">
+                  <p id="storage0"></p>
+                  <p id="storage1"></p>
+                  <p id="storage2"></p>
+                  <p id="storage3"></p>
+                  <p id="storage4"></p>
+                  <p id="storage5"></p>
+                  <p id="storage6"></p>
+                  <p id="storage7"></p>
+                  <p id="storage8"></p>
+
+                </div>
             </div>
 
         </div>
-        <div class = "col s8">
+        <div class = "col s10">
             <div class = "row">
                 <div class = "col s12">
-                    <div id="weatherDetail">
-                        <h1 id="cityName"></h1>
+                    <div class = "todayInfo" id="weatherDetail">
+                        <h3 id="cityName"></h3>
                         <img id="icon">
                         <p id="condition"></p>
                         <p id="temp"></p>
@@ -41,7 +52,7 @@
                         <p id="wind"></p>
                     </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row"> -->
                     
                     <div class="col s2 ">
                       <div class="card-panel blue">
@@ -84,7 +95,7 @@
                       </div>
 
                   </div>
-            </div>
+            <!-- </div> -->
         </div>   
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
