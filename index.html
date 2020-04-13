@@ -1,40 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Dashboard</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">  Weather Dashboard</a>
+        </div>
+      </nav>
 
-    <header>Weather Dashboard</header>
-    <div id="sideBar">
-        <form id="searchForm">Search for a City</form>
-        <input id="searchInput">
-        <button id= "searchBtn">Search</button>
-        <div>Dallas</div>
-        <div>Dallas</div>
-        <div>Dallas</div>
-        <div>Dallas</div>
-        <div>Dallas</div>
-        <div>Dallas</div>
+    <div class = "row">
+        <div class = "col s4">
+            <div id="sideBar">
+                <div class="input-field">
+                    <input id="searchInput" type="text">
+                    <label for="first_name">Search for a city</label>
+                  </div>
+                <a class="waves-effect waves-light btn-small"id= "searchBtn">Search</a>
+                <div id="history"></div>
+            </div>
 
+        </div>
+        <div class = "col s8">
+            <div class = "row">
+                <div class = "col s12">
+                    <div id="weatherDetail">
+                        <h1 id="cityName"></h1>
+                        <img id="icon">
+                        <p id="condition"></p>
+                        <p id="temp"></p>
+                        <p id="hum"></p>
+                        <p id="wind"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="col s2 ">
+                      <div class="card-panel blue">
+                          <span class="white-text" id="day0"></span>
+                          <img id="condition0">
+                        <span class="white-text" id="info0"></span>
+                      </div>
+                    </div>
+
+                    <div class="col s2 ">
+                        <div class="card-panel blue">
+                            <span class="white-text" id="day1"></span>
+                            <img id="condition1">
+                          <span class="white-text" id="info1"></span>
+                        </div>
+                      </div>
+
+                      <div class="col s2 ">
+                        <div class="card-panel blue">
+                            <span class="white-text" id="day2"></span>
+                            <img id="condition2">
+                          <span class="white-text" id="info2"></span>
+                        </div>
+                      </div>
+
+                      <div class="col s2 ">
+                        <div class="card-panel blue">
+                            <span class="white-text" id="day3"></span>
+                            <img id="condition3">
+                          <span class="white-text" id="info3"></span>
+                        </div>
+                      </div>
+
+                      <div class="col s2 ">
+                        <div class="card-panel blue">
+                            <span class="white-text" id="day4"></span>
+                            <img id="condition4">
+                          <span class="white-text" id="info4"></span>
+                        </div>
+                      </div>
+
+                  </div>
+            </div>
+        </div>   
     </div>
-    <div id="weatherDetail">
-        <h1 id="cityName"></h1>
-        <img id="icon">
-        <p id="condition"></p>
-        <p id="temp"></p>
-        <p id="hum"></p>
-        <p id="wind"></p>
-        <!-- <p id="uvIndex"></p> -->
-    </div>
-    <div id="fiveDays">
-        <div id="day01"></div>
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
 <script src="script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>
