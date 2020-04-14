@@ -27,11 +27,10 @@
             count++;
             localStorage.setItem("count", count);
         }
-        $("#searchInput").val() = "";
+        $("#searchInput").val("");
     })
     
     $(".historyCity").on("click", function(){
-        console.log(this.textContent);
         city = this.textContent;
         runWeather();
     })
@@ -58,8 +57,6 @@ function runWeather(){
         method: 'GET'
     })
     .then(function(response){
-        // console.log(queryURL);
-        console.log(response);
 
         var newCity = response.name;
         cityStorage(newCity);
@@ -75,15 +72,13 @@ function runWeather(){
     
         lon = response.coord.lon;
         lat = response.coord.lat;
-    
-        console.log("lon: " + lon + " lat: " + lat);
-    
+        
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/onecall?lat="+ lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial",
             method: 'GET',
         })
         .then(function (response){
-            console.log(response);
+
             var day = new moment();
             for (var i = 0; i < 5; i++){
                 day = moment().add(i, "d"); 
