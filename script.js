@@ -3,23 +3,37 @@
     var apiKey = "84812982b10af876dab44397bb670d34";
     var lon = "";
     var lat = "";
-    var count = localStorage.getItem("count");
-    if(count == null){
-        localStorage.setItem("count", 0);
-    }
     var city = "Irvine";
+    var count;
+    if(localStorage.getItem("count") == null){
+        localStorage.setItem("count", 0);
+        count = 0;
+    }
+    else{
+        count = parseInt(localStorage.getItem("count"));
+        city = localStorage.getItem("local"+count);
+    }
+
 
     runWeather();
 
     $("#searchBtn").on("click", function(){
         city = $("#searchInput").val();
         runWeather();
-        localStorage.getItem("count")++;
-        localStorage.setItem("count", count);
+        count = parseInt(localStorage.getItem("count"));
         if (count > 7){
             count = 0;
+            localStorage.setItem("count", 0);
+        }
+        else{
+            count++;
+            localStorage.setItem("count", count);
         }
         $("#searchInput").val("");
+    })
+    $(".historyCity").on("click", function(){
+        city = this.text();
+        runWeather();
     })
 
 function refreshHistory(){
@@ -87,10 +101,3 @@ function runWeather(){
     })
 
 }
-
-
-// function tempF (k){
-//     var f = (k - 273.15) * (9/5) + 32;
-//     var rounded = f.toFixed(2);
-//     return rounded;
-// }

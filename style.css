@@ -8,8 +8,8 @@ html{
 }
 #icon{
     height: 70px;
-    padding-left: 20%;
+    padding-left: 30px;
 }
 .todayInfo{
-    font-size: large;
+    font-size: medium;
 }
