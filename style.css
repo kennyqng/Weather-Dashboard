@@ -2,6 +2,9 @@ html{
     background-color: lightblue;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 }
+.brand-logo{
+    margin-left: 10px;
+}
 
 .card-panel{
     background-image: url("img.jpg");
@@ -11,5 +14,17 @@ html{
     padding-left: 30px;
 }
 .todayInfo{
+    font-size: medium;
+}
+.historyCity{
+    margin-top: 10px;
+    width: 40%;
+    outline: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    color: rgba(0, 0, 0, 0.651);
     font-size: medium;
 }

@@ -1,5 +1,3 @@
-
-
     var apiKey = "84812982b10af876dab44397bb670d34";
     var lon = "";
     var lat = "";
@@ -29,15 +27,17 @@
             count++;
             localStorage.setItem("count", count);
         }
-        $("#searchInput").val("");
+        $("#searchInput").val() = "";
     })
+    
     $(".historyCity").on("click", function(){
-        city = this.text();
+        console.log(this.textContent);
+        city = this.textContent;
         runWeather();
     })
 
 function refreshHistory(){
-    for (var i = 0; i < 7;i++){
+    for (var i = 0; i < 7 ;i++){
         $("#storage"+i).text(localStorage.getItem("local"+i));
     }
 }
