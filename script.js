@@ -78,9 +78,12 @@ function runWeather(){
             method: 'GET',
         })
         .then(function (response){
-
             var day = new moment();
             for (var i = 0; i < 5; i++){
+
+                var longTemp = response.daily[i].temp.day;
+                var shortTemp = longTemp.toFixed(1);
+
                 day = moment().add(i, "d"); 
                 $("#day"+i).text(day.format("MMM D"));
 
@@ -88,7 +91,7 @@ function runWeather(){
                 $("#condition"+i).attr("src", "http://openweathermap.org/img/wn/" + dayIcon + ".png");
 
                 $("#info"+i).text(
-                    " Temp: " + response.daily[i].temp.day + " F" +
+                    " Temp: " + shortTemp + "F" +
                     " Humidity: " + response.daily[i].humidity
                 );
             }
