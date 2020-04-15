@@ -19,7 +19,7 @@
         city = $("#searchInput").val();
         runWeather();
         count = parseInt(localStorage.getItem("count"));
-        if (count > 7){
+        if (count > 6){
             count = 0;
             localStorage.setItem("count", 0);
         }
@@ -36,7 +36,7 @@
     })
 
 function refreshHistory(){
-    for (var i = 0; i < 7 ;i++){
+    for (var i = 0; i < 8 ;i++){
         $("#storage"+i).text(localStorage.getItem("local"+i));
     }
 }
@@ -60,6 +60,7 @@ function runWeather(){
 
         var newCity = response.name;
         cityStorage(newCity);
+        console.log(response);
     
         $("#cityName").text(response.name + ", " + response.sys.country);
         $("#condition").text("Condition: " + response.weather[0].description);
@@ -97,5 +98,6 @@ function runWeather(){
             }
         })
     })
+    refreshHistory();
 
 }

@@ -9,15 +9,27 @@ html{
 .card-panel{
     background-image: url("img.jpg");
 }
-#icon{
-    height: 70px;
-    padding-left: 30px;
+#cityName{
+    display: inline;
+    color: teal;
 }
-.todayInfo{
+
+.todayInfo {
     font-size: medium;
+    padding-top: 20px;
+}
+.stats li{
+    padding: 5px;
+    color: rgb(53, 53, 53);
+}
+#searchBtn{
+    margin-top: 0px;
+}
+#history{
+    margin-top: 10px;
 }
 .historyCity{
-    margin-top: 10px;
+    margin-top: 7px;
     width: 40%;
     outline: none;
     background-color: transparent;
@@ -25,7 +37,6 @@ html{
     border: none;
     cursor:pointer;
     overflow: hidden;
-    color: rgba(0, 0, 0, 0.651);
-    font-size: medium;
+    color: teal;
 }
 
