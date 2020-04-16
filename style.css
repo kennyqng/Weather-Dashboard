@@ -2,16 +2,23 @@ html{
     background-color: lightblue;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 }
-.brand-logo{
-    margin-left: 10px;
+
+nav{
+    padding-left: 10px;
 }
+.input-field{
+    display: inline-block;
+}
+/* #searchBtn{
+    display: inline-block;
+} */
 
 .card-panel{
     background-image: url("img.jpg");
 }
 #cityName{
     display: inline;
-    color: teal;
+    color: white;
 }
 
 .todayInfo {
@@ -30,13 +37,13 @@ html{
 }
 .historyCity{
     margin-top: 7px;
-    width: 40%;
+    /* width: 40%; */
     outline: none;
     background-color: transparent;
     background-repeat: no-repeat;
     border: none;
     cursor:pointer;
     overflow: hidden;
-    color: teal;
+    color: rgb(53, 53, 53);
 }
 
